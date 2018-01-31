@@ -6,7 +6,7 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 
 **Usage**
 
-    $ python coarsening.pyo [options]
+    $ python coarsening.py [options]
 
 | Option					| Domain					| Required	| Default 			| Description															|
 |:------------------------- |:------------------------- | --------	| ----------------- | :-------------------------------------------------------------------- |
@@ -52,21 +52,21 @@ We test a scientific collaboration network (Cond-Mat), available [here](https://
 
     $ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 1 1 -r 0.5 0.5 --show_timing
 
-   	Snippet   Time [m]   Time [s]
+    	Snippet   Time [m]   Time [s]
           Load        0.0     0.4741
     Coarsening        0.0     1.7116
           Save        0.0     0.1087
 
 	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 2 2 -r 0.5 0.5 --show_timing
 
-   	Snippet   Time [m]   Time [s]
+    	Snippet   Time [m]   Time [s]
           Load        0.0     0.4807
     Coarsening        0.0     2.4015
           Save        0.0     0.0340
 
 	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 3 3 -r 0.5 0.5 --show_timing
 
-   	Snippet   Time [m]   Time [s]
+    	Snippet   Time [m]   Time [s]
           Load        0.0     0.4830
     Coarsening        0.0     2.8129
           Save        0.0     0.0467
