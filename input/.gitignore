@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!condmat9599R16726C22016.ncol
+
+# ...even if they are in subdirectories
+# !*/
