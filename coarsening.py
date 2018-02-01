@@ -13,21 +13,14 @@ Such a hierarchy represents the network on multiple scales.
 
 This file is part of OPM.
 
-OPM is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-OPM is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with OPM. If not, see <http://www.gnu.org/licenses/>.
+OPM is free software and non-commercial use only: you can be use it for creating
+unlimited applications, distribute in binary or object form only, modify
+source-code and distribute modifications (derivative works). Please, giving 
+credit to the author by citing the papers. License will expire in 2018, July.
 
 Required:
 	.. _igraph: http://igraph.sourceforge.net
+	.. _numpy:  http://www.numpy.org
 """
 
 import sys
