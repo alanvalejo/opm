@@ -93,7 +93,7 @@ Please contact the author for problems and bug report.
 * Non-commercial use only
 * Can modify source-code and distribute modifications (derivative works)
 * Giving credit to the author by citing the papers [1,2]
-* License will expire in 2018, July
+* License will expire in 2018, July, and will be renewed.
 
 **References**
 
