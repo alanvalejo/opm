@@ -13,7 +13,7 @@ Such a hierarchy represents the network on multiple scales.
 
 This file is part of OPM.
 
-OPM is free software and non-commercial use only: you can be use it for creating
+OPM is a free software and non-commercial use only: you can be use it for creating
 unlimited applications, distribute in binary or object form only, modify
 source-code and distribute modifications (derivative works). Please, giving 
 credit to the author by citing the papers. License will expire in 2018, July.
