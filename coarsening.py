@@ -23,10 +23,6 @@ Owner or contributors are not liable for any direct, indirect, incidental, speci
 exemplary, or consequential damages, (such as loss of data or profits, and others)
 arising in any way out of the use of this software, even if advised of the possibility
 of such damage.
-
-Required:
-	.. _igraph: http://igraph.sourceforge.net
-	.. _numpy:  http://www.numpy.org
 """
 
 import sys
