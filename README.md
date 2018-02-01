@@ -86,7 +86,7 @@ Please contact the author for problems and bug report.
 * Ph.D. candidate at University of São Paolo (USP), Brazil.
 * alanvalejo@gmail.com.
 
-**License**
+**License (COPYING.md)**
 
 * Can be used for creating unlimited applications
 * Can be distributed in binary or object form only
