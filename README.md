@@ -6,7 +6,7 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 
 **Download**
 
-* You can download the MkNN software in http://www.alanvalejo.com.br/software?name=OPM
+* You can download the OPM software in http://www.alanvalejo.com.br/software?name=OPM
 
 **Usage**
 
