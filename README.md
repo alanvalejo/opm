@@ -4,6 +4,10 @@
 
 This is an Python implementation of a novel multilevel method based on one-mode projection that allows executing traditional multilevel methods in bipartite network models, published by Alan et. al. [1] and [2].  The aim to reduce the cost of an optimization process by applying it to a reduced or coarsened version of the original bipartite network.
 
+**Download**
+
+* You can download the MkNN software in http://www.alanvalejo.com.br/software?name=OPM
+
 **Usage**
 
     $ python coarsening.py [options]
@@ -95,10 +99,6 @@ Please contact the author for problems and bug report.
 * Can modify source-code and distribute modifications (derivative works)
 * Giving credit to the author by citing the papers
 * License will expire in 2018, July, and will be renewed
-
-**Download**
-
-* You can download the MkNN software in http://www.alanvalejo.com.br/software?id=1
 
 **References**
 
