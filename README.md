@@ -98,7 +98,7 @@ Please contact the author for problems and bug report.
 
 **Download**
 
-* You can download the MkNN software in http://www.alanvalejo.com.br/software?id=4
+* You can download the MkNN software in http://www.alanvalejo.com.br/software?id=1
 
 **References**
 
