@@ -10,25 +10,36 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 
 **Usage**
 
-    $ python coarsening.py [options]
+> Coarsening by levels. The user defines the number of levels and the reduction factor at each level.
 
-| Option					| Domain					| Required	| Default 			| Description															|
-|:------------------------- |:------------------------- | --------	| ----------------- | :-------------------------------------------------------------------- |
-| -f, --filename			| string [FILE]				| yes		| - 				|  Dataset as input file												|
-| -v, --vertices			| int						| yes		| -					|  Number of vertices for each layer									|
-| -d, --directory			| string [DIR]				| no		| '.' 				|  Output directory														|
-| -o, --output				| string [FILE]				| no		| filename 			|  Output file															|
-| -r, --rf					| array in (0, 0.5]			| no		| [0.5] * n 		|  Reduction factor for each layer										|
-| -m, --ml					| array in [0, n]			| no		| 1					|  Max levels for each layer											|
-| -c, --matching			| string 					| no		| Hem				|  Matching method														|
-| -s, --similarity			| string					| no		| Common Neighbors	|  Similarity measure													|
-| -l, --layers				| {1,2}						| no		| all				|  Layers that will be processed										|
-| -e, --extension			| string [ncol, gml, pajek]	| no		| .ncol 			|  Output extension														|
-| --save_hierarchy			| store true				| no		| False 			|  Save all levels of hierarchy of coarsening							|
-| --show_timing				| store true				| no		| False 			|  Show timing															|
-| --save_timing_csv			| store true				| no		| False 			|  Show timing in csm													|
-| --save_timing_json		| store true				| no		| False 			|  Save timing in json													|
-| --unique_key				| store true				| no		| False 			|  Output date and time as unique_key									|
+	$ python coarsening-level.py [options]
+
+> Coarsening until a max number of vertices. The process will automatically control the total number of levels and the reduction factor at each level.
+
+	$ python coarsening-max-vertices.py [options]
+
+|Option            |Domain           |Default   |Description                          |
+|------------------|-----------------|----------|-------------------------------------|
+|-f --filename     |string [FILE]    |None      |name of the FILES to be loaded       |
+|-v --vertices     |int              |None      |number of vertices for each layer    |
+|-d --directory    |string [DIR]     |'.'       |directory of output FILEs            |
+|-o --output       |string [FILE]    |filename  |name of the FILE to be save          |
+|-r --rf           |array in (0 0.5] |[0.5 0.5] |reduction factor for each layer      |
+|-m --ml           |array in [0 n]   |[3 3]     |max levels for each layer            |
+|-mv --max_vertices|array in [0 n]   |None      |max number of vertices for each layer; supress -r and -m parameters|
+|-c --matching     |string           |[hem hem] |matching method for each layer       |
+|-s --similarity   |string           |None      |similarity measure for each layer    |
+|-cf --conf        |string [FILE]    |None      |name of the config FILE to be loaded |
+|--save_conf       |boolean          |false     |save config file                     |
+|--save_ncol       |boolean          |false     |save ncol format                     |
+|--save_gml        |boolean          |false     |save gml format                      |
+|--save_source     |boolean          |false     |save source reference                |
+|--save_predecessor|boolean          |false     |save predecessor reference           |
+|--save_hierarchy  |boolean          |false     |save all levels of hierarchy         |
+|--save_timing     |boolean          |false     |save timing in json                  |
+|--show_timing     |boolean          |false     |show timing                          |
+|--unique_key      |boolean          |false     |output date and time as unique_key   |
+
 
 The matching strategy selects the best pairs of vertices for matching. Formally, a matching $M$ can be denoted by a set of pairwise non-adjacent edges, i.e., a set of edges with no common vertices. In this software it is possible use two matching methods:
 
@@ -56,29 +67,39 @@ We test a scientific collaboration network (Cond-Mat), available [here](https://
 
     $ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 1 1 -r 0.5 0.5 --show_timing
 
-    	Snippet   Time [m]   Time [s]
-          Load        0.0     0.4741
-    Coarsening        0.0     1.7116
-          Save        0.0     0.1087
+|Snippet   |Time [m]|Time [s]|
+|----------|--------|--------|
+|Load      |0.0     |0.4741  |
+|Coarsening|0.0     |1.7116  |
+|Save      |0.0     |0.1087  |
+
 
 	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 2 2 -r 0.5 0.5 --show_timing
 
-    	Snippet   Time [m]   Time [s]
-          Load        0.0     0.4807
-    Coarsening        0.0     2.4015
-          Save        0.0     0.0340
+|Snippet   |Time [m]|Time [s]|
+|----------|--------|--------|
+|Load      |0.0     |0.4807  |
+|Coarsening|0.0     |2.4015  |
+|Save      |0.0     |0.0340  |
+
 
 	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 3 3 -r 0.5 0.5 --show_timing
 
-    	Snippet   Time [m]   Time [s]
-          Load        0.0     0.4830
-    Coarsening        0.0     2.8129
-          Save        0.0     0.0467
+|Snippet   |Time [m]|Time [s]|
+|----------|--------|--------|
+|Load      |0.0     |0.4830  |
+|Coarsening|0.0     |2.8129  |
+|Save      |0.0     |0.0467  |
+
+
+You can use a config file (.json) to specify the parameters, for instance:
+
+    $ python coarsening.py -cf input/condmat9599R16726C22016.json
 
 **Dependencies**
 
 * Python: tested with version 2.7.13.
-* Packages needed: igraph and numpy.
+* Packages required: [igraph](http://igraph.sourceforge.net); [scipy](http://www.scipy.org/); [sklearn](http://scikit-learn.org/); [numpy](http://www.numpy.org/)
 
 **Known Bugs**
 
@@ -90,15 +111,14 @@ Please contact the author for problems and bug report.
 * Ph.D. candidate at University of São Paolo (USP), Brazil.
 * alanvalejo@gmail.com.
 
-
-**License (For a complete version of the license, see the COPYING.md)**
+**License (COPYING.md)**
 
 * Can be used for creating unlimited applications
 * Can be distributed in binary or object form only
 * Non-commercial use only
 * Can modify source-code and distribute modifications (derivative works)
-* Giving credit to the author by citing the papers
-* License will expire in 2018, July, and will be renewed
+* Giving credit to the author by citing the papers [1,2]
+* License will expire in 2018, July, and will be renewed.
 
 **References**
 
