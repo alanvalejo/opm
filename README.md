@@ -18,6 +18,8 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 
 	$ python coarsening-max-vertices.py [options]
 
+<div class="table-wrapper" markdown="block">
+
 |Option            |Domain           |Default   |Description                          |
 |------------------|-----------------|----------|-------------------------------------|
 |-f --filename     |string [FILE]    |None      |name of the FILES to be loaded       |
@@ -40,6 +42,7 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 |--show_timing     |boolean          |false     |show timing                          |
 |--unique_key      |boolean          |false     |output date and time as unique_key   |
 
+</div>
 
 The matching strategy selects the best pairs of vertices for matching. Formally, a matching $M$ can be denoted by a set of pairwise non-adjacent edges, i.e., a set of edges with no common vertices. In this software it is possible use two matching methods:
 
