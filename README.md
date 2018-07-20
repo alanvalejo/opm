@@ -6,43 +6,37 @@ This is an Python implementation of a novel multilevel method based on one-mode 
 
 **Download**
 
-* You can download the OPM software in http://www.alanvalejo.com.br/software?name=OPM
+* You can download the OPM software in http://www.alanvalejo.com.br/software?name=opm
 
 **Usage**
 
 > Coarsening by levels. The user defines the number of levels and the reduction factor at each level.
 
-	$ python coarsening-level.py [options]
+	$ python coarsening.py [options]
 
-> Coarsening until a max number of vertices. The process will automatically control the total number of levels and the reduction factor at each level.
+| Option             | Domain           | Default   | Description                          |
+| ------------------ | ---------------- | --------- | ------------------------------------ |
+| -in --input        | string [FILE]    | None      | name of the input file to be loaded  |
+| -dir --directory   | string [DIR]     | '.'       | directory of output file             |
+| -out --output      | string [FILE]    | filename  | name of the file to be save          |
+| -cnf --conf        | string [FILE]    | None      | name of the config file to be loaded |
+| -v --vertices      | int              | None      | number of vertices for each layer    |
+| -r --rf            | array in (0 0.5] | [0.5 0.5] | reduction factor for each layer      |
+| -m --ml            | array in [0 n]   | [3 3]     | max levels for each layer            |
+| -c --matching      | string           | [hem hem] | matching method for each layer       |
+| -s --similarity    | string           | None      | similarity measure for each layer    |
+| --save_conf        | boolean          | False     | save config file                     |
+| --save_ncol        | boolean          | False     | save ncol format                     |
+| --save_gml         | boolean          | False     | save gml format                      |
+| --save_source      | boolean          | False     | save source reference                |
+| --save_predecessor | boolean          | False     | save predecessor reference           |
+| --save_successor   | boolean          | False     | save successor reference             |
+| --save_hierarchy   | boolean          | False     | save all levels of hierarchy         |
+| --save_timing_json | boolean          | False     | save timing in json                  |
+| --save_timing_csv  | boolean          | False     | save timing in csv                   |
+| --show_timing      | boolean          | False     | show timing                          |
+| --unique_key       | boolean          | False     | output date and time as unique_key   |
 
-	$ python coarsening-max-vertices.py [options]
-
-<div class="table-wrapper" markdown="block">
-
-|Option            |Domain           |Default   |Description                          |
-|------------------|-----------------|----------|-------------------------------------|
-|-f --filename     |string [FILE]    |None      |name of the FILES to be loaded       |
-|-v --vertices     |int              |None      |number of vertices for each layer    |
-|-d --directory    |string [DIR]     |'.'       |directory of output FILEs            |
-|-o --output       |string [FILE]    |filename  |name of the FILE to be save          |
-|-r --rf           |array in (0 0.5] |[0.5 0.5] |reduction factor for each layer      |
-|-m --ml           |array in [0 n]   |[3 3]     |max levels for each layer            |
-|-mv --max_vertices|array in [0 n]   |None      |max number of vertices for each layer; supress -r and -m parameters|
-|-c --matching     |string           |[hem hem] |matching method for each layer       |
-|-s --similarity   |string           |None      |similarity measure for each layer    |
-|-cf --conf        |string [FILE]    |None      |name of the config FILE to be loaded |
-|--save_conf       |boolean          |false     |save config file                     |
-|--save_ncol       |boolean          |false     |save ncol format                     |
-|--save_gml        |boolean          |false     |save gml format                      |
-|--save_source     |boolean          |false     |save source reference                |
-|--save_predecessor|boolean          |false     |save predecessor reference           |
-|--save_hierarchy  |boolean          |false     |save all levels of hierarchy         |
-|--save_timing     |boolean          |false     |save timing in json                  |
-|--show_timing     |boolean          |false     |show timing                          |
-|--unique_key      |boolean          |false     |output date and time as unique_key   |
-
-</div>
 
 The matching strategy selects the best pairs of vertices for matching. Formally, a matching $M$ can be denoted by a set of pairwise non-adjacent edges, i.e., a set of edges with no common vertices. In this software it is possible use two matching methods:
 
@@ -68,36 +62,36 @@ Bipartite networks can be transformed into unipartite networks through one-mode 
 
 We test a scientific collaboration network (Cond-Mat), available [here](https://toreopsahl.com/datasets/#newman2001), which is based on preprints posted in the Condensed Matter section (arXiv) between 1995 and 1999 and has 38.742 vertices (authors and papers) and 58.595 edges (authorship) among different types of vertices.
 
-    $ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 1 1 -r 0.5 0.5 --show_timing
+    $ python coarsening.py -f input/condmat1995to1999.ncol -v 16726 22016 -m 1 1 -r 0.5 0.5 --show_timing
 
-|Snippet   |Time [m]|Time [s]|
-|----------|--------|--------|
-|Load      |0.0     |0.4741  |
-|Coarsening|0.0     |1.7116  |
-|Save      |0.0     |0.1087  |
-
-
-	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 2 2 -r 0.5 0.5 --show_timing
-
-|Snippet   |Time [m]|Time [s]|
-|----------|--------|--------|
-|Load      |0.0     |0.4807  |
-|Coarsening|0.0     |2.4015  |
-|Save      |0.0     |0.0340  |
+| Snippet    | Time [m] | Time [s] |
+| ---------- | -------- | -------- |
+| Load       | 0.0      | 0.4741   |
+| Coarsening | 0.0      | 1.7116   |
+| Save       | 0.0      | 0.1087   |
 
 
-	$ python coarsening.py -f input/condmat9599R16726C22016.ncol -v 16726 22016 -m 3 3 -r 0.5 0.5 --show_timing
+	$ python coarsening.py -f input/condmat1995to1999.ncol -v 16726 22016 -m 2 2 -r 0.5 0.5 --show_timing
 
-|Snippet   |Time [m]|Time [s]|
-|----------|--------|--------|
-|Load      |0.0     |0.4830  |
-|Coarsening|0.0     |2.8129  |
-|Save      |0.0     |0.0467  |
+| Snippet    | Time [m] | Time [s] |
+| ---------- | -------- | -------- |
+| Load       | 0.0      | 0.4807   |
+| Coarsening | 0.0      | 2.4015   |
+| Save       | 0.0      | 0.0340   |
+
+
+	$ python coarsening.py -f input/condmat1995to1999.ncol -v 16726 22016 -m 3 3 -r 0.5 0.5 --show_timing
+
+| Snippet    | Time [m] | Time [s] |
+| ---------- | -------- | -------- |
+| Load       | 0.0      | 0.4830   |
+| Coarsening | 0.0      | 2.8129   |
+| Save       | 0.0      | 0.0467   |
 
 
 You can use a config file (.json) to specify the parameters, for instance:
 
-    $ python coarsening.py -cf input/condmat9599R16726C22016.json
+    $ python coarsening.py -cnf input/condmat1995to1999.json
 
 **Dependencies**
 
