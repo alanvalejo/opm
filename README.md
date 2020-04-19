@@ -16,17 +16,14 @@ You can get an alternative Python implementation of the OPM coarsening algorithm
 @inproceedings{valejo2018community,
     author = {Valejo, Alan and Ferreira, V. and Oliveira, Maria C. F. and Lopes, A. A.},
     title = {Community detection in bipartite network: a modified coarsening approach},
-    booktitle = {International symposium on information management and big data (SIMBig), track on social network and 
-media analysis and mining (SNMAN). Part of the Communications in Computer and Information Science book 
-series (CCIS, volume 795)},
+    booktitle = {International symposium on information management and big data (SIMBig), track on social network and media analysis and mining (SNMAN). Part of the Communications in Computer and Information Science book series (CCIS, volume 795)},
     year = {2018},
     pages = {123--136},
 }
 @inproceedings{valejo2017one,
     author = {Valejo, Alan and Filho, Geraldo P. R. and Oliveira, Maria C. F. and Ferreira, V. and Lopes, A. A.},
     title = {One-mode projection-based multilevel approach for community detection in bipartite networks},
-    booktitle = {International symposium on information management and big data (SIMBig), track on social network and 
-media analysis and mining (SNMAN)},
+    booktitle = {International symposium on information management and big data (SIMBig), track on social network and media analysis and mining (SNMAN)},
     year = {2017},
     pages = {101-108},
 }
