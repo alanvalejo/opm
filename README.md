@@ -1,4 +1,4 @@
-### OPM (One-mode projection-based multilevel method for bipartite networks)
+### OPM: One-mode projection-based multilevel method for bipartite networks
 
 You can get an alternative Python implementation of the OPM coarsening algorithm in [MFBN](https://github.com/alanvalejo/mfbn) repository. MFBN is a framework that compiles several coarsening algorithms for bipartite networks.
 
