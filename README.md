@@ -31,3 +31,5 @@ media analysis and mining (SNMAN)},
     pages = {101-108},
 }
 ~~~~~
+
+<div class="footer"> &copy; Copyright (C) 2016 Alan Valejo &lt;alanvalejo@gmail.com&gt; All rights reserved.</div>
